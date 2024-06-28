@@ -7514,7 +7514,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">handcalcs.render</span>
@@ -7557,10 +7557,10 @@ a.anchor-link {
 <h1 id="Plan">Plan<a class="anchor-link" href="#Plan">¶</a></h1><p><img alt="Plan" src="./media/plan.svg"/></p>
 <h1 id="Type">Type<a class="anchor-link" href="#Type">¶</a></h1><p><img alt="Type" src="./media/type.svg"/></p>
 <h1 id="Beam">Beam<a class="anchor-link" href="#Beam">¶</a></h1><p><img alt="Beam" src="./media/beam.svg"/></p>
-<h1 id="External-beam">External beam<a class="anchor-link" href="#External-beam">¶</a></h1><p><img alt="External beam" src="./media/type-beam-int.svg"/></p>
-<h1 id="Internal-beam">Internal beam<a class="anchor-link" href="#Internal-beam">¶</a></h1><p><img alt="Internal beam" src="./media/type-beam-ext.svg"/></p>
-<h1 id="Beam-rebar:-longitudinal">Beam rebar: longitudinal<a class="anchor-link" href="#Beam-rebar:-longitudinal">¶</a></h1><p><img alt="Beam rebar: long" src="./media/beam-rebar.svg"/></p>
-<h1 id="Beam-rebar:-transverse">Beam rebar: transverse<a class="anchor-link" href="#Beam-rebar:-transverse">¶</a></h1><p><img alt="Beam rebar: tra" src="./media/beam-rebar-tra.svg"/></p>
+<h1 id="Internal-beam">Internal beam<a class="anchor-link" href="#Internal-beam">¶</a></h1><p><img alt="External beam" src="./media/type-beam-int.svg"/></p>
+<h1 id="External-beam">External beam<a class="anchor-link" href="#External-beam">¶</a></h1><p><img alt="Internal beam" src="./media/type-beam-ext.svg"/></p>
+<h1 id="Beam-rebar">Beam rebar<a class="anchor-link" href="#Beam-rebar">¶</a></h1><p><img alt="Beam rebar: long" src="./media/beam-rebar.svg"/></p>
+<h1 id="Beam-rebar">Beam rebar<a class="anchor-link" href="#Beam-rebar">¶</a></h1><p><img alt="Beam rebar: tra" src="./media/beam-rebar-tra.svg"/></p>
 <h1 id="Beam-to-column-connection">Beam-to-column connection<a class="anchor-link" href="#Beam-to-column-connection">¶</a></h1><p><img alt="Connection" src="./media/connection.svg"/></p>
 </div>
 </div>
@@ -7581,7 +7581,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
@@ -7614,7 +7614,7 @@ density_rebar = (7850*kg/m**3)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="External-beam:-sides">External beam: sides<a class="anchor-link" href="#External-beam:-sides">¶</a></h1>
+<h1 id="Internal-beam-rebar">Internal beam rebar<a class="anchor-link" href="#Internal-beam-rebar">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7623,12 +7623,14 @@ density_rebar = (7850*kg/m**3)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
-A_ext_sides_top = (1841*mm**2)
-A_ext_sides_bot = (506*mm**2)
+A_int_sides_top = (1841*mm**2)
+A_int_sides_bot = (506*mm**2)
+A_int_mid_top = (371*mm**2)
+A_int_mid_bot = (1170*mm**2)
 </pre></div>
 </div>
 </div>
@@ -7643,9 +7645,13 @@ A_ext_sides_bot = (506*mm**2)
 <div class="jp-RenderedLatex jp-OutputArea-output" data-mime-type="text/latex" tabindex="0">
 \[
 \begin{aligned}
-A_{ext_{sides_{top}}} &amp;= 1841.000\ \mathrm{mm}^{2} \; 
+A_{int_{sides_{top}}} &amp;= 1841.000\ \mathrm{mm}^{2} \; 
 \\[10pt]
-A_{ext_{sides_{bot}}} &amp;= 506.000\ \mathrm{mm}^{2} \; 
+A_{int_{sides_{bot}}} &amp;= 506.000\ \mathrm{mm}^{2} \; 
+\\[10pt]
+A_{int_{mid_{top}}} &amp;= 371.000\ \mathrm{mm}^{2} \; 
+\\[10pt]
+A_{int_{mid_{bot}}} &amp;= 1170.000\ \mathrm{mm}^{2} \; 
 \end{aligned}
 \]
 </div>
@@ -7653,27 +7659,29 @@ A_{ext_{sides_{bot}}} &amp;= 506.000\ \mathrm{mm}^{2} \;
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d797b715-2245-45bb-b896-0f72efaabfc0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dc1427e7-4875-48d6-ba78-1674beec6d86">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="External-beam:-middle">External beam: middle<a class="anchor-link" href="#External-beam:-middle">¶</a></h1>
+<h1 id="External-beam-rebar">External beam rebar<a class="anchor-link" href="#External-beam-rebar">¶</a></h1>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1f43b754-abf5-468e-a167-695d3a695a8b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f1f47877-3e6d-4f37-a00a-f3ef75ba48c4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
-A_ext_mid_top = (371*mm**2)
-A_ext_mid_bot = (1170*mm**2)
+A_ext_sides_top = (1231*mm**2)
+A_ext_sides_bot = (840*mm**2)
+A_ext_mid_top = (840*mm**2)
+A_ext_mid_bot = (840*mm**2)
 </pre></div>
 </div>
 </div>
@@ -7688,25 +7696,15 @@ A_ext_mid_bot = (1170*mm**2)
 <div class="jp-RenderedLatex jp-OutputArea-output" data-mime-type="text/latex" tabindex="0">
 \[
 \begin{aligned}
-A_{ext_{mid_{top}}} &amp;= 371.000\ \mathrm{mm}^{2} \; 
+A_{ext_{sides_{top}}} &amp;= 1231.000\ \mathrm{mm}^{2} \; 
 \\[10pt]
-A_{ext_{mid_{bot}}} &amp;= 1170.000\ \mathrm{mm}^{2} \; 
+A_{ext_{sides_{bot}}} &amp;= 840.000\ \mathrm{mm}^{2} \; 
+\\[10pt]
+A_{ext_{mid_{top}}} &amp;= 840.000\ \mathrm{mm}^{2} \; 
+\\[10pt]
+A_{ext_{mid_{bot}}} &amp;= 840.000\ \mathrm{mm}^{2} \; 
 \end{aligned}
 \]
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3cb420f6-3e1f-4791-9ae1-864926e8682a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
 </div>
 </div>
 </div>
