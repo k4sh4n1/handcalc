@@ -7514,7 +7514,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [138]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [148]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">handcalcs.render</span>
@@ -7581,7 +7581,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [139]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [149]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
@@ -7644,7 +7644,7 @@ column_length = (4000*mm)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [140]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [150]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
@@ -7704,7 +7704,7 @@ v_{il} &amp;= \mathrm{count} \cdot \left( A_{side} \cdot l_{side} + A_{mid} \cdo
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [141]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [151]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
@@ -7765,12 +7765,12 @@ v_{xl} &amp;= \mathrm{count} \cdot \left( l_{side} \cdot A_{side} + l_{mid} \cdo
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [142]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [152]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
 A_T10 = 3.1415/4*(10*mm)**2
-l = (beam_width-2*cover)*2+(beam_height_internal-2*cover)*2
+l = (beam_width-2*cover)*2+(beam_height_internal-2*cover)*2 + 2*75
 v = l*A_T10 # For a single transverse rebar
 d = (120*mm)
 v_noncritical = v / d
@@ -7795,15 +7795,15 @@ v_it = count*(l_critical*v_critical+l_noncritical*v_noncritical)
 \begin{aligned}
 A_{T10} &amp;= \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot \mathrm{mm} \right) ^{ 2 }  = \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot mm \right) ^{ 2 } &amp;= 78.538\ \mathrm{mm}^{2}  
 \\[10pt]
-l &amp;= \left( \mathrm{beam}_{width} - 2 \cdot \mathrm{cover} \right) \cdot 2 + \left( \mathrm{beam}_{height_{internal}} - 2 \cdot \mathrm{cover} \right) \cdot 2 \\&amp;= \left( 400.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + \left( 300.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 \\&amp;= 1.000\ \mathrm{m}  \\[10pt]
+l &amp;= \left( \mathrm{beam}_{width} - 2 \cdot \mathrm{cover} \right) \cdot 2 + \left( \mathrm{beam}_{height_{internal}} - 2 \cdot \mathrm{cover} \right) \cdot 2 + 2 \cdot 75 \\&amp;= \left( 400.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + \left( 300.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + 2 \cdot 75 \\&amp;= 151.000\ \mathrm{m}  \\[10pt]
 \\[10pt]
-v &amp;= l \cdot A_{T10}  = 1.000\ \mathrm{m} \cdot 78.538\ \mathrm{mm}^{2} &amp;= 78537.500\ \mathrm{mm}^{3} \; \;\textrm{(For a single transverse rebar)}
+v &amp;= l \cdot A_{T10}  = 151.000\ \mathrm{m} \cdot 78.538\ \mathrm{mm}^{2} &amp;= 11859162.500\ \mathrm{mm}^{3} \; \;\textrm{(For a single transverse rebar)}
 \\[10pt]
 d &amp;= 120.000\ \mathrm{mm} \; 
 \\[10pt]
-v_{noncritical} &amp;= \frac{ v }{ d }  = \frac{ 78537.500\ \mathrm{mm}^{3} }{ 120.000\ \mathrm{mm} } &amp;= 654.479\ \mathrm{mm}^{2}  
+v_{noncritical} &amp;= \frac{ v }{ d }  = \frac{ 11859162.500\ \mathrm{mm}^{3} }{ 120.000\ \mathrm{mm} } &amp;= 98826.354\ \mathrm{mm}^{2}  
 \\[10pt]
-v_{critical} &amp;= \frac{ v }{ \frac{ d }{ 2 } }  = \frac{ 78537.500\ \mathrm{mm}^{3} }{ \frac{ 120.000\ \mathrm{mm} }{ 2 } } &amp;= 1308.958\ \mathrm{mm}^{2}  
+v_{critical} &amp;= \frac{ v }{ \frac{ d }{ 2 } }  = \frac{ 11859162.500\ \mathrm{mm}^{3} }{ \frac{ 120.000\ \mathrm{mm} }{ 2 } } &amp;= 197652.708\ \mathrm{mm}^{2}  
 \\[10pt]
 l_{critical} &amp;= 2 \cdot \mathrm{beam}_{height_{internal}}  = 2 \cdot 300.000\ \mathrm{mm} &amp;= 600.000\ \mathrm{mm}  
 \\[10pt]
@@ -7811,7 +7811,7 @@ l_{noncritical} &amp;= \mathrm{beam}_{length} - 2 \cdot l_{critical}  = 5.000\ \
 \\[10pt]
 \mathrm{count} &amp;= 4 \; 
 \\[10pt]
-v_{it} &amp;= \mathrm{count} \cdot \left( l_{critical} \cdot v_{critical} + l_{noncritical} \cdot v_{noncritical} \right) \\&amp;= 4 \cdot \left( 600.000\ \mathrm{mm} \cdot 1308.958\ \mathrm{mm}^{2} + 3.800\ \mathrm{m} \cdot 654.479\ \mathrm{mm}^{2} \right) \\&amp;= 13089583.333\ \mathrm{mm}^{3}  \\[10pt]
+v_{it} &amp;= \mathrm{count} \cdot \left( l_{critical} \cdot v_{critical} + l_{noncritical} \cdot v_{noncritical} \right) \\&amp;= 4 \cdot \left( 600.000\ \mathrm{mm} \cdot 197652.708\ \mathrm{mm}^{2} + 3.800\ \mathrm{m} \cdot 98826.354\ \mathrm{mm}^{2} \right) \\&amp;= 1.977\ \mathrm{m}^{3}  \\[10pt]
 \end{aligned}
 \]
 </div>
@@ -7834,12 +7834,12 @@ v_{it} &amp;= \mathrm{count} \cdot \left( l_{critical} \cdot v_{critical} + l_{n
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [143]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [153]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
 A_T10 = 3.1415/4*(10*mm)**2
-l = (beam_width-2*cover)*2+(beam_height_external-2*cover)*2
+l = (beam_width-2*cover)*2+(beam_height_external-2*cover)*2 + 2*75
 v=l*A_T10 # For a single transverse rebar
 d = (200*mm)
 v_noncritical=v/d
@@ -7864,15 +7864,15 @@ v_xt = count*(l_critical*v_critical+l_noncritical*v_noncritical)
 \begin{aligned}
 A_{T10} &amp;= \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot \mathrm{mm} \right) ^{ 2 }  = \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot mm \right) ^{ 2 } &amp;= 78.538\ \mathrm{mm}^{2}  
 \\[10pt]
-l &amp;= \left( \mathrm{beam}_{width} - 2 \cdot \mathrm{cover} \right) \cdot 2 + \left( \mathrm{beam}_{height_{external}} - 2 \cdot \mathrm{cover} \right) \cdot 2 \\&amp;= \left( 400.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + \left( 500.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 \\&amp;= 1.400\ \mathrm{m}  \\[10pt]
+l &amp;= \left( \mathrm{beam}_{width} - 2 \cdot \mathrm{cover} \right) \cdot 2 + \left( \mathrm{beam}_{height_{external}} - 2 \cdot \mathrm{cover} \right) \cdot 2 + 2 \cdot 75 \\&amp;= \left( 400.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + \left( 500.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + 2 \cdot 75 \\&amp;= 151.400\ \mathrm{m}  \\[10pt]
 \\[10pt]
-v &amp;= 109952.500\ \mathrm{mm}^{3} \; \;\textrm{(For a single transverse rebar)}
+v &amp;= 11890577.500\ \mathrm{mm}^{3} \; \;\textrm{(For a single transverse rebar)}
 \\[10pt]
 d &amp;= 200.000\ \mathrm{mm} \; 
 \\[10pt]
-v_{noncritical} &amp;= 549.763\ \mathrm{mm}^{2} \; 
+v_{noncritical} &amp;= 59452.888\ \mathrm{mm}^{2} \; 
 \\[10pt]
-v_{critical} &amp;= 1099.525\ \mathrm{mm}^{2} \; 
+v_{critical} &amp;= 118905.775\ \mathrm{mm}^{2} \; 
 \\[10pt]
 l_{critical} &amp;= 2 \cdot \mathrm{beam}_{height_{external}}  = 2 \cdot 500.000\ \mathrm{mm} &amp;= 1.000\ \mathrm{m}  
 \\[10pt]
@@ -7880,7 +7880,7 @@ l_{noncritical} &amp;= 3.000\ \mathrm{m} \;
 \\[10pt]
 \mathrm{count} &amp;= 8 \; 
 \\[10pt]
-v_{xt} &amp;= \mathrm{count} \cdot \left( l_{critical} \cdot v_{critical} + l_{noncritical} \cdot v_{noncritical} \right) \\&amp;= 8 \cdot \left( 1.000\ \mathrm{m} \cdot 1099.525\ \mathrm{mm}^{2} + 3.000\ \mathrm{m} \cdot 549.763\ \mathrm{mm}^{2} \right) \\&amp;= 21990500.000\ \mathrm{mm}^{3}  \\[10pt]
+v_{xt} &amp;= \mathrm{count} \cdot \left( l_{critical} \cdot v_{critical} + l_{noncritical} \cdot v_{noncritical} \right) \\&amp;= 8 \cdot \left( 1.000\ \mathrm{m} \cdot 118905.775\ \mathrm{mm}^{2} + 3.000\ \mathrm{m} \cdot 59452.888\ \mathrm{mm}^{2} \right) \\&amp;= 2.378\ \mathrm{m}^{3}  \\[10pt]
 \end{aligned}
 \]
 </div>
@@ -7903,7 +7903,7 @@ v_{xt} &amp;= \mathrm{count} \cdot \left( l_{critical} \cdot v_{critical} + l_{n
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [144]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [154]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
@@ -7922,7 +7922,7 @@ v_beam = v_il + v_xl + v_it + v_xt
 <div class="jp-RenderedLatex jp-OutputArea-output" data-mime-type="text/latex" tabindex="0">
 \[
 \begin{aligned}
-v_{beam} &amp;= v_{il} + v_{xl} + v_{it} + v_{xt} \\&amp;= 41566666.667\ \mathrm{mm}^{3} + 77626666.667\ \mathrm{mm}^{3} + 13089583.333\ \mathrm{mm}^{3} + 21990500.000\ \mathrm{mm}^{3} \\&amp;= 154273416.667\ \mathrm{mm}^{3}  \\[10pt]
+v_{beam} &amp;= v_{il} + v_{xl} + v_{it} + v_{xt}  = 41566666.667\ \mathrm{mm}^{3} + 77626666.667\ \mathrm{mm}^{3} + 1.977\ \mathrm{m}^{3} + 2.378\ \mathrm{m}^{3} &amp;= 4.474\ \mathrm{m}^{3}  
 \end{aligned}
 \]
 </div>
