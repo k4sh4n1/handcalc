@@ -8259,6 +8259,7 @@ column_concrete = count * column_length * column_dim**2 - column_rebar
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Foundation">Foundation<a class="anchor-link" href="#Foundation">¶</a></h1><p><img alt="Foundation" src="./media/foundation.svg"/></p>
 <p><img alt="Foundation section" src="./media/foundation-section.svg"/></p>
+<p><img alt="Foundation connection" src="./media/foundation-connection.png"/></p>
 </div>
 </div>
 </div>
@@ -8283,10 +8284,9 @@ column_concrete = count * column_length * column_dim**2 - column_rebar
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
 A_T20 = 3.1415/4*(20*mm)**2
-l = 2*(foundation_dim - 2*cover + 2*(300*mm)) # Top and bottom
-v = l * A_T20 # For a single transverse: top and bottom
+l_stirrup = 2*(foundation_dim - 2*cover + 2*(300*mm)) # Top and bottom
 d = (250*mm)
-v_perlength = v / d
+v_perlength = A_T20 * l_stirrup / d
 
 foundation_center_rebar = 2 * v_perlength * foundation_dim # Both dimensions
 </pre></div>
@@ -8305,13 +8305,11 @@ foundation_center_rebar = 2 * v_perlength * foundation_dim # Both dimensions
 \begin{aligned}
 A_{T20} &amp;= \frac{ 3.1415 }{ 4 } \cdot \left( 20 \cdot \mathrm{mm} \right) ^{ 2 }  = \frac{ 3.1415 }{ 4 } \cdot \left( 20 \cdot mm \right) ^{ 2 } &amp;= 314.150\ \mathrm{mm}^{2}  
 \\[10pt]
-l &amp;= 2 \cdot \left( \mathrm{foundation}_{dim} - 2 \cdot \mathrm{cover} + 2 \cdot \left( 300 \cdot \mathrm{mm} \right) \right) \\&amp;= 2 \cdot \left( 900.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} + 2 \cdot \left( 300 \cdot mm \right) \right) \\&amp;= 2.800\ \mathrm{m} \; \;\textrm{(Top and bottom)}\\[10pt]
-\\[10pt]
-v &amp;= l \cdot A_{T20}  = 2.800\ \mathrm{m} \cdot 314.150\ \mathrm{mm}^{2} &amp;= 879620.000\ \mathrm{mm}^{3} \; \;\textrm{(For a single transverse: top and bottom)}
+l_{stirrup} &amp;= 2 \cdot \left( \mathrm{foundation}_{dim} - 2 \cdot \mathrm{cover} + 2 \cdot \left( 300 \cdot \mathrm{mm} \right) \right) \\&amp;= 2 \cdot \left( 900.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} + 2 \cdot \left( 300 \cdot mm \right) \right) \\&amp;= 2.800\ \mathrm{m} \; \;\textrm{(Top and bottom)}\\[10pt]
 \\[10pt]
 d &amp;= 250.000\ \mathrm{mm} \; 
 \\[10pt]
-v_{perlength} &amp;= \frac{ v }{ d }  = \frac{ 879620.000\ \mathrm{mm}^{3} }{ 250.000\ \mathrm{mm} } &amp;= 3518.480\ \mathrm{mm}^{2}  
+v_{perlength} &amp;= A_{T20} \cdot \frac{ l_{stirrup} }{ d }  = 314.150\ \mathrm{mm}^{2} \cdot \frac{ 2.800\ \mathrm{m} }{ 250.000\ \mathrm{mm} } &amp;= 3518.480\ \mathrm{mm}^{2}  
 \\[10pt]
 \mathrm{foundation}_{center_{rebar}} &amp;= 2 \cdot v_{perlength} \cdot \mathrm{foundation}_{dim} \\&amp;= 2 \cdot 3518.480\ \mathrm{mm}^{2} \cdot 900.000\ \mathrm{mm} \\&amp;= 6333264.000\ \mathrm{mm}^{3} \; \;\textrm{(Both dimensions)}\\[10pt]
 \end{aligned}
@@ -8341,10 +8339,9 @@ v_{perlength} &amp;= \frac{ v }{ d }  = \frac{ 879620.000\ \mathrm{mm}^{3} }{ 25
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
 A_T20 = 3.1415/4*(20*mm)**2
-l = 2 * (foundation_width - 2*cover + 2*(300*mm)) # Top and bottom
-v = A_T20 * l
+l_stirrup = 2 * (foundation_width - 2*cover + 2*(300*mm)) # Top and bottom
 d = (250*mm)
-v_perlength = v / d
+v_perlength = A_T20 * l_stirrup / d
 
 foundation_around_rebar_transverse = v_perlength * 4 * (10*m)
 </pre></div>
@@ -8363,13 +8360,11 @@ foundation_around_rebar_transverse = v_perlength * 4 * (10*m)
 \begin{aligned}
 A_{T20} &amp;= \frac{ 3.1415 }{ 4 } \cdot \left( 20 \cdot \mathrm{mm} \right) ^{ 2 }  = \frac{ 3.1415 }{ 4 } \cdot \left( 20 \cdot mm \right) ^{ 2 } &amp;= 314.150\ \mathrm{mm}^{2}  
 \\[10pt]
-l &amp;= 2 \cdot \left( \mathrm{foundation}_{width} - 2 \cdot \mathrm{cover} + 2 \cdot \left( 300 \cdot \mathrm{mm} \right) \right) \\&amp;= 2 \cdot \left( 500.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} + 2 \cdot \left( 300 \cdot mm \right) \right) \\&amp;= 2.000\ \mathrm{m} \; \;\textrm{(Top and bottom)}\\[10pt]
-\\[10pt]
-v &amp;= A_{T20} \cdot l  = 314.150\ \mathrm{mm}^{2} \cdot 2.000\ \mathrm{m} &amp;= 628300.000\ \mathrm{mm}^{3}  
+l_{stirrup} &amp;= 2 \cdot \left( \mathrm{foundation}_{width} - 2 \cdot \mathrm{cover} + 2 \cdot \left( 300 \cdot \mathrm{mm} \right) \right) \\&amp;= 2 \cdot \left( 500.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} + 2 \cdot \left( 300 \cdot mm \right) \right) \\&amp;= 2.000\ \mathrm{m} \; \;\textrm{(Top and bottom)}\\[10pt]
 \\[10pt]
 d &amp;= 250.000\ \mathrm{mm} \; 
 \\[10pt]
-v_{perlength} &amp;= \frac{ v }{ d }  = \frac{ 628300.000\ \mathrm{mm}^{3} }{ 250.000\ \mathrm{mm} } &amp;= 2513.200\ \mathrm{mm}^{2}  
+v_{perlength} &amp;= A_{T20} \cdot \frac{ l_{stirrup} }{ d }  = 314.150\ \mathrm{mm}^{2} \cdot \frac{ 2.000\ \mathrm{m} }{ 250.000\ \mathrm{mm} } &amp;= 2513.200\ \mathrm{mm}^{2}  
 \\[10pt]
 \mathrm{foundation}_{around_{rebar_{transverse}}} &amp;= v_{perlength} \cdot 4 \cdot \left( 10 \cdot m \right) \\&amp;= 2513.200\ \mathrm{mm}^{2} \cdot 4 \cdot \left( 10 \cdot m \right) \\&amp;= 100528000.000\ \mathrm{mm}^{3}  \\[10pt]
 \end{aligned}
@@ -8434,6 +8429,66 @@ v_{perlength} &amp;= A_{25T} \cdot \frac{ l }{ d }  = 490.859\ \mathrm{mm}^{2} \
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=422532cc-cd10-4daf-bbab-c94676e9cf66">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Foundation:-connection-(section-D-D):-rebar">Foundation: connection (section D-D): rebar<a class="anchor-link" href="#Foundation:-connection-(section-D-D):-rebar">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d76b53cd-801c-4bfe-a6f5-3cbf565ec4a9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
+A_T12 = 3.1415/4*(12*mm)**2
+A_T6 = 3.1415/4*(6*mm)**2
+
+l_stirrup = 4*((250*mm) - 2*cover) + 2*(75*mm)
+d = (250*mm)
+
+A_perlength = 4*A_T12 + A_T6 * l_stirrup / d
+
+foundation_connection_rebar = 2 * (10*m) * A_perlength
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedLatex jp-OutputArea-output" data-mime-type="text/latex" tabindex="0">
+\[
+\begin{aligned}
+A_{T12} &amp;= \frac{ 3.1415 }{ 4 } \cdot \left( 12 \cdot \mathrm{mm} \right) ^{ 2 }  = \frac{ 3.1415 }{ 4 } \cdot \left( 12 \cdot mm \right) ^{ 2 } &amp;= 113.094\ \mathrm{mm}^{2}  
+\\[10pt]
+A_{T6} &amp;= \frac{ 3.1415 }{ 4 } \cdot \left( 6 \cdot \mathrm{mm} \right) ^{ 2 }  = \frac{ 3.1415 }{ 4 } \cdot \left( 6 \cdot mm \right) ^{ 2 } &amp;= 28.274\ \mathrm{mm}^{2}  
+\\[10pt]
+l_{stirrup} &amp;= 4 \cdot \left( \left( 250 \cdot \mathrm{mm} \right) - 2 \cdot \mathrm{cover} \right) + 2 \cdot \left( 75 \cdot \mathrm{mm} \right) \\&amp;= 4 \cdot \left( \left( 250 \cdot mm \right) - 2 \cdot 50.000\ \mathrm{mm} \right) + 2 \cdot \left( 75 \cdot mm \right) \\&amp;= 750.000\ \mathrm{mm}  \\[10pt]
+\\[10pt]
+d &amp;= 250.000\ \mathrm{mm} \; 
+\\[10pt]
+A_{perlength} &amp;= 4 \cdot A_{T12} + A_{T6} \cdot \frac{ l_{stirrup} }{ d }  = 4 \cdot 113.094\ \mathrm{mm}^{2} + 28.274\ \mathrm{mm}^{2} \cdot \frac{ 750.000\ \mathrm{mm} }{ 250.000\ \mathrm{mm} } &amp;= 537.197\ \mathrm{mm}^{2}  
+\\[10pt]
+\mathrm{foundation}_{connection_{rebar}} &amp;= 2 \cdot \left( 10 \cdot m \right) \cdot A_{perlength} \\&amp;= 2 \cdot \left( 10 \cdot m \right) \cdot 537.197\ \mathrm{mm}^{2} \\&amp;= 10743930.000\ \mathrm{mm}^{3}  \\[10pt]
+\end{aligned}
+\]
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bd419b24-eb7a-42e1-86c6-a67a388d686a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8449,11 +8504,11 @@ v_{perlength} &amp;= A_{25T} \cdot \frac{ l }{ d }  = 490.859\ \mathrm{mm}^{2} \
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
-foundation_rebar = foundation_center_rebar + foundation_around_rebar_transverse + foundation_around_rebar_longitudinal
+foundation_rebar = foundation_center_rebar + foundation_around_rebar_transverse + foundation_around_rebar_longitudinal + foundation_connection_rebar
 </pre></div>
 </div>
 </div>
@@ -8468,7 +8523,7 @@ foundation_rebar = foundation_center_rebar + foundation_around_rebar_transverse 
 <div class="jp-RenderedLatex jp-OutputArea-output" data-mime-type="text/latex" tabindex="0">
 \[
 \begin{aligned}
-\mathrm{foundation}_{rebar} &amp;= \mathrm{foundation}_{center_{rebar}} + \mathrm{foundation}_{around_{rebar_{transverse}}} + \mathrm{foundation}_{around_{rebar_{longitudinal}}} \\&amp;= 6333264.000\ \mathrm{mm}^{3} + 100528000.000\ \mathrm{mm}^{3} + 78537500.000\ \mathrm{mm}^{3} \\&amp;= 185398764.000\ \mathrm{mm}^{3}  \\[10pt]
+\mathrm{foundation}_{rebar} &amp;= \mathrm{foundation}_{center_{rebar}} + \mathrm{foundation}_{around_{rebar_{transverse}}} + \mathrm{foundation}_{around_{rebar_{longitudinal}}} + \mathrm{foundation}_{connection_{rebar}} \\&amp;= 6333264.000\ \mathrm{mm}^{3} + 100528000.000\ \mathrm{mm}^{3} + 78537500.000\ \mathrm{mm}^{3} + 10743930.000\ \mathrm{mm}^{3} \\&amp;= 196142694.000\ \mathrm{mm}^{3}  \\[10pt]
 \end{aligned}
 \]
 </div>
@@ -8491,13 +8546,14 @@ foundation_rebar = foundation_center_rebar + foundation_around_rebar_transverse 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
 foundation_center_concrete = (foundation_dim**2 * foundation_height)
 foundation_around_concrete = foundation_width * foundation_height * 4 * (10*m)
-foundation_concrete = foundation_center_concrete + foundation_around_concrete - foundation_rebar
+foundation_connection_concrete = (250*mm)**2 * 2 * (10*m)
+foundation_concrete = foundation_center_concrete + foundation_around_concrete + foundation_connection_concrete - foundation_rebar
 </pre></div>
 </div>
 </div>
@@ -8516,7 +8572,9 @@ foundation_concrete = foundation_center_concrete + foundation_around_concrete - 
 \\[10pt]
 \mathrm{foundation}_{around_{concrete}} &amp;= \mathrm{foundation}_{width} \cdot \mathrm{foundation}_{height} \cdot 4 \cdot \left( 10 \cdot m \right) \\&amp;= 500.000\ \mathrm{mm} \cdot 700.000\ \mathrm{mm} \cdot 4 \cdot \left( 10 \cdot m \right) \\&amp;= 14.000\ \mathrm{m}^{3}  \\[10pt]
 \\[10pt]
-\mathrm{foundation}_{concrete} &amp;= \mathrm{foundation}_{center_{concrete}} + \mathrm{foundation}_{around_{concrete}} - \mathrm{foundation}_{rebar} \\&amp;= 567000000.000\ \mathrm{mm}^{3} + 14.000\ \mathrm{m}^{3} - 185398764.000\ \mathrm{mm}^{3} \\&amp;= 14.382\ \mathrm{m}^{3}  \\[10pt]
+\mathrm{foundation}_{connection_{concrete}} &amp;= \left( 250 \cdot \mathrm{mm} \right) ^{ 2 } \cdot 2 \cdot \left( 10 \cdot m \right) \\&amp;= \left( 250 \cdot mm \right) ^{ 2 } \cdot 2 \cdot \left( 10 \cdot m \right) \\&amp;= 1.250\ \mathrm{m}^{3}  \\[10pt]
+\\[10pt]
+\mathrm{foundation}_{concrete} &amp;= \mathrm{foundation}_{center_{concrete}} + \mathrm{foundation}_{around_{concrete}} + \mathrm{foundation}_{connection_{concrete}} - \mathrm{foundation}_{rebar} \\&amp;= 567000000.000\ \mathrm{mm}^{3} + 14.000\ \mathrm{m}^{3} + 1.250\ \mathrm{m}^{3} - 196142694.000\ \mathrm{mm}^{3} \\&amp;= 15.621\ \mathrm{m}^{3}  \\[10pt]
 \end{aligned}
 \]
 </div>
@@ -8539,7 +8597,7 @@ foundation_concrete = foundation_center_concrete + foundation_around_concrete - 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
@@ -8559,9 +8617,9 @@ rebar_weight = rebar * density_rebar
 <div class="jp-RenderedLatex jp-OutputArea-output" data-mime-type="text/latex" tabindex="0">
 \[
 \begin{aligned}
-\mathrm{rebar} &amp;= \mathrm{beam}_{rebar} + \mathrm{column}_{rebar} + \mathrm{foundation}_{rebar} \\&amp;= 171944354.167\ \mathrm{mm}^{3} + 129513573.333\ \mathrm{mm}^{3} + 185398764.000\ \mathrm{mm}^{3} \\&amp;= 486856691.500\ \mathrm{mm}^{3}  \\[10pt]
+\mathrm{rebar} &amp;= \mathrm{beam}_{rebar} + \mathrm{column}_{rebar} + \mathrm{foundation}_{rebar} \\&amp;= 171944354.167\ \mathrm{mm}^{3} + 129513573.333\ \mathrm{mm}^{3} + 196142694.000\ \mathrm{mm}^{3} \\&amp;= 497600621.500\ \mathrm{mm}^{3}  \\[10pt]
 \\[10pt]
-\mathrm{rebar}_{weight} &amp;= \mathrm{rebar} \cdot \mathrm{density}_{rebar}  = 486856691.500\ \mathrm{mm}^{3} \cdot 7850.000\ \mathrm{kg} \cdot \mathrm{m}^{-3} &amp;= 3.822\ \mathrm{Mg}  
+\mathrm{rebar}_{weight} &amp;= \mathrm{rebar} \cdot \mathrm{density}_{rebar}  = 497600621.500\ \mathrm{mm}^{3} \cdot 7850.000\ \mathrm{kg} \cdot \mathrm{m}^{-3} &amp;= 3.906\ \mathrm{Mg}  
 \end{aligned}
 \]
 </div>
@@ -8584,7 +8642,7 @@ rebar_weight = rebar * density_rebar
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
@@ -8603,23 +8661,9 @@ concrete = beam_concrete + column_concrete + foundation_concrete
 <div class="jp-RenderedLatex jp-OutputArea-output" data-mime-type="text/latex" tabindex="0">
 \[
 \begin{aligned}
-\mathrm{concrete} &amp;= \mathrm{beam}_{concrete} + \mathrm{column}_{concrete} + \mathrm{foundation}_{concrete} \\&amp;= 10.228\ \mathrm{m}^{3} + 7.160\ \mathrm{m}^{3} + 14.382\ \mathrm{m}^{3} \\&amp;= 31.770\ \mathrm{m}^{3}  \\[10pt]
+\mathrm{concrete} &amp;= \mathrm{beam}_{concrete} + \mathrm{column}_{concrete} + \mathrm{foundation}_{concrete} \\&amp;= 10.228\ \mathrm{m}^{3} + 7.160\ \mathrm{m}^{3} + 15.621\ \mathrm{m}^{3} \\&amp;= 33.009\ \mathrm{m}^{3}  \\[10pt]
 \end{aligned}
 \]
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9d9441bd-7897-428b-9b2a-56ede636f47b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
 </div>
 </div>
 </div>
