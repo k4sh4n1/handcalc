@@ -7779,13 +7779,15 @@ v_{xl} &amp;= \mathrm{count} \cdot \left( l_{side} \cdot A_{side} + l_{mid} \cdo
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
 A_T10 = 3.1415/4*(10*mm)**2
-l = (beam_width-2*cover)*2+(beam_height_internal-2*cover)*2 + 2*(75*mm)
-v = l*A_T10 # For a single transverse rebar
+l_stirrup = (beam_width-2*cover)*2+(beam_height_internal-2*cover)*2 + 2*(75*mm)
 d = (120*mm)
-v_noncritical = v / d
-v_critical = v / (d/2)
+
+v_noncritical = l_stirrup * A_T10 / d
+v_critical = l_stirrup * A_T10 / (d/2)
+
 l_critical = 2 * 2 * beam_height_internal
 l_noncritical = beam_length - l_critical
+
 count = 4
 v_it = count*(l_critical*v_critical+l_noncritical*v_noncritical)
 </pre></div>
@@ -7804,15 +7806,13 @@ v_it = count*(l_critical*v_critical+l_noncritical*v_noncritical)
 \begin{aligned}
 A_{T10} &amp;= \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot \mathrm{mm} \right) ^{ 2 }  = \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot mm \right) ^{ 2 } &amp;= 78.538\ \mathrm{mm}^{2}  
 \\[10pt]
-l &amp;= \left( \mathrm{beam}_{width} - 2 \cdot \mathrm{cover} \right) \cdot 2 + \left( \mathrm{beam}_{height_{internal}} - 2 \cdot \mathrm{cover} \right) \cdot 2 + 2 \cdot \left( 75 \cdot \mathrm{mm} \right) \\&amp;= \left( 400.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + \left( 300.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + 2 \cdot \left( 75 \cdot mm \right) \\&amp;= 1.150\ \mathrm{m}  \\[10pt]
-\\[10pt]
-v &amp;= l \cdot A_{T10}  = 1.150\ \mathrm{m} \cdot 78.538\ \mathrm{mm}^{2} &amp;= 90318.125\ \mathrm{mm}^{3} \; \;\textrm{(For a single transverse rebar)}
+l_{stirrup} &amp;= \left( \mathrm{beam}_{width} - 2 \cdot \mathrm{cover} \right) \cdot 2 + \left( \mathrm{beam}_{height_{internal}} - 2 \cdot \mathrm{cover} \right) \cdot 2 + 2 \cdot \left( 75 \cdot \mathrm{mm} \right) \\&amp;= \left( 400.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + \left( 300.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + 2 \cdot \left( 75 \cdot mm \right) \\&amp;= 1.150\ \mathrm{m}  \\[10pt]
 \\[10pt]
 d &amp;= 120.000\ \mathrm{mm} \; 
 \\[10pt]
-v_{noncritical} &amp;= \frac{ v }{ d }  = \frac{ 90318.125\ \mathrm{mm}^{3} }{ 120.000\ \mathrm{mm} } &amp;= 752.651\ \mathrm{mm}^{2}  
+v_{noncritical} &amp;= l_{stirrup} \cdot \frac{ A_{T10} }{ d }  = 1.150\ \mathrm{m} \cdot \frac{ 78.538\ \mathrm{mm}^{2} }{ 120.000\ \mathrm{mm} } &amp;= 752.651\ \mathrm{mm}^{2}  
 \\[10pt]
-v_{critical} &amp;= \frac{ v }{ \frac{ d }{ 2 } }  = \frac{ 90318.125\ \mathrm{mm}^{3} }{ \frac{ 120.000\ \mathrm{mm} }{ 2 } } &amp;= 1505.302\ \mathrm{mm}^{2}  
+v_{critical} &amp;= l_{stirrup} \cdot \frac{ A_{T10} }{ \frac{ d }{ 2 } }  = 1.150\ \mathrm{m} \cdot \frac{ 78.538\ \mathrm{mm}^{2} }{ \frac{ 120.000\ \mathrm{mm} }{ 2 } } &amp;= 1505.302\ \mathrm{mm}^{2}  
 \\[10pt]
 l_{critical} &amp;= 2 \cdot 2 \cdot \mathrm{beam}_{height_{internal}}  = 2 \cdot 2 \cdot 300.000\ \mathrm{mm} &amp;= 1.200\ \mathrm{m}  
 \\[10pt]
@@ -7848,13 +7848,15 @@ v_{it} &amp;= \mathrm{count} \cdot \left( l_{critical} \cdot v_{critical} + l_{n
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
 A_T10 = 3.1415/4*(10*mm)**2
-l = (beam_width-2*cover)*2+(beam_height_external-2*cover)*2 + 2*(75*mm)
-v=l*A_T10 # For a single transverse rebar
+l_stirrup = (beam_width-2*cover)*2+(beam_height_external-2*cover)*2 + 2*(75*mm)
 d = (200*mm)
-v_noncritical=v/d
-v_critical=v/(d/2)
+
+v_noncritical = l_stirrup * A_T10 / d
+v_critical= l_stirrup * A_T10 / (d/2)
+
 l_critical = 2 * 2 * beam_height_external
 l_noncritical = beam_length - l_critical
+
 count = 8
 v_xt = count*(l_critical*v_critical+l_noncritical*v_noncritical)
 </pre></div>
@@ -7873,15 +7875,13 @@ v_xt = count*(l_critical*v_critical+l_noncritical*v_noncritical)
 \begin{aligned}
 A_{T10} &amp;= \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot \mathrm{mm} \right) ^{ 2 }  = \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot mm \right) ^{ 2 } &amp;= 78.538\ \mathrm{mm}^{2}  
 \\[10pt]
-l &amp;= \left( \mathrm{beam}_{width} - 2 \cdot \mathrm{cover} \right) \cdot 2 + \left( \mathrm{beam}_{height_{external}} - 2 \cdot \mathrm{cover} \right) \cdot 2 + 2 \cdot \left( 75 \cdot \mathrm{mm} \right) \\&amp;= \left( 400.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + \left( 500.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + 2 \cdot \left( 75 \cdot mm \right) \\&amp;= 1.550\ \mathrm{m}  \\[10pt]
-\\[10pt]
-v &amp;= 121733.125\ \mathrm{mm}^{3} \; \;\textrm{(For a single transverse rebar)}
+l_{stirrup} &amp;= \left( \mathrm{beam}_{width} - 2 \cdot \mathrm{cover} \right) \cdot 2 + \left( \mathrm{beam}_{height_{external}} - 2 \cdot \mathrm{cover} \right) \cdot 2 + 2 \cdot \left( 75 \cdot \mathrm{mm} \right) \\&amp;= \left( 400.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + \left( 500.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) \cdot 2 + 2 \cdot \left( 75 \cdot mm \right) \\&amp;= 1.550\ \mathrm{m}  \\[10pt]
 \\[10pt]
 d &amp;= 200.000\ \mathrm{mm} \; 
 \\[10pt]
-v_{noncritical} &amp;= 608.666\ \mathrm{mm}^{2} \; 
+v_{noncritical} &amp;= l_{stirrup} \cdot \frac{ A_{T10} }{ d }  = 1.550\ \mathrm{m} \cdot \frac{ 78.538\ \mathrm{mm}^{2} }{ 200.000\ \mathrm{mm} } &amp;= 608.666\ \mathrm{mm}^{2}  
 \\[10pt]
-v_{critical} &amp;= 1217.331\ \mathrm{mm}^{2} \; 
+v_{critical} &amp;= l_{stirrup} \cdot \frac{ A_{T10} }{ \frac{ d }{ 2 } }  = 1.550\ \mathrm{m} \cdot \frac{ 78.538\ \mathrm{mm}^{2} }{ \frac{ 200.000\ \mathrm{mm} }{ 2 } } &amp;= 1217.331\ \mathrm{mm}^{2}  
 \\[10pt]
 l_{critical} &amp;= 2 \cdot 2 \cdot \mathrm{beam}_{height_{external}}  = 2 \cdot 2 \cdot 500.000\ \mathrm{mm} &amp;= 2.000\ \mathrm{m}  
 \\[10pt]
@@ -8114,13 +8114,14 @@ v_{2l} &amp;= \mathrm{count} \cdot \mathrm{column}_{length} \cdot A  = 4 \cdot 4
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">render</span>
 A_T10 = 3.1415/4*(10*mm)**2
-l = 4*(column_dim-2*cover) + 2*(75*mm)
-v = l * A_T10 # For a single transverse rebar
+l_tie = 4*(column_dim-2*cover) + 2*(75*mm)
 d = (200*mm)
-v_noncritical = v / d
-v_critical = v / (d/2)
+v_noncritical = l_tie * A_T10 / d
+v_critical = l_tie * A_T10 / (d/2)
+
 l_critical = 2 * column_length / 6
 l_noncritical = column_length - l_critical
+
 count = 8
 
 v_12t = count * (l_critical*v_critical + l_noncritical*v_noncritical)
@@ -8140,15 +8141,13 @@ v_12t = count * (l_critical*v_critical + l_noncritical*v_noncritical)
 \begin{aligned}
 A_{T10} &amp;= \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot \mathrm{mm} \right) ^{ 2 }  = \frac{ 3.1415 }{ 4 } \cdot \left( 10 \cdot mm \right) ^{ 2 } &amp;= 78.538\ \mathrm{mm}^{2}  
 \\[10pt]
-l &amp;= 4 \cdot \left( \mathrm{column}_{dim} - 2 \cdot \mathrm{cover} \right) + 2 \cdot \left( 75 \cdot \mathrm{mm} \right) \\&amp;= 4 \cdot \left( 450.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) + 2 \cdot \left( 75 \cdot mm \right) \\&amp;= 1.550\ \mathrm{m}  \\[10pt]
-\\[10pt]
-v &amp;= l \cdot A_{T10}  = 1.550\ \mathrm{m} \cdot 78.538\ \mathrm{mm}^{2} &amp;= 121733.125\ \mathrm{mm}^{3} \; \;\textrm{(For a single transverse rebar)}
+l_{tie} &amp;= 4 \cdot \left( \mathrm{column}_{dim} - 2 \cdot \mathrm{cover} \right) + 2 \cdot \left( 75 \cdot \mathrm{mm} \right) \\&amp;= 4 \cdot \left( 450.000\ \mathrm{mm} - 2 \cdot 50.000\ \mathrm{mm} \right) + 2 \cdot \left( 75 \cdot mm \right) \\&amp;= 1.550\ \mathrm{m}  \\[10pt]
 \\[10pt]
 d &amp;= 200.000\ \mathrm{mm} \; 
 \\[10pt]
-v_{noncritical} &amp;= \frac{ v }{ d }  = \frac{ 121733.125\ \mathrm{mm}^{3} }{ 200.000\ \mathrm{mm} } &amp;= 608.666\ \mathrm{mm}^{2}  
+v_{noncritical} &amp;= l_{tie} \cdot \frac{ A_{T10} }{ d }  = 1.550\ \mathrm{m} \cdot \frac{ 78.538\ \mathrm{mm}^{2} }{ 200.000\ \mathrm{mm} } &amp;= 608.666\ \mathrm{mm}^{2}  
 \\[10pt]
-v_{critical} &amp;= \frac{ v }{ \frac{ d }{ 2 } }  = \frac{ 121733.125\ \mathrm{mm}^{3} }{ \frac{ 200.000\ \mathrm{mm} }{ 2 } } &amp;= 1217.331\ \mathrm{mm}^{2}  
+v_{critical} &amp;= l_{tie} \cdot \frac{ A_{T10} }{ \frac{ d }{ 2 } }  = 1.550\ \mathrm{m} \cdot \frac{ 78.538\ \mathrm{mm}^{2} }{ \frac{ 200.000\ \mathrm{mm} }{ 2 } } &amp;= 1217.331\ \mathrm{mm}^{2}  
 \\[10pt]
 l_{critical} &amp;= 2 \cdot \frac{ \mathrm{column}_{length} }{ 6 }  = 2 \cdot \frac{ 4.000\ \mathrm{m} }{ 6 } &amp;= 1.333\ \mathrm{m}  
 \\[10pt]
